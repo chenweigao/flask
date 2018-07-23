@@ -49,6 +49,7 @@
     <Content Include="requirements.txt" />
     <Content Include="smarttrack\static\content\bootstrap.css" />
     <Content Include="smarttrack\static\content\bootstrap.min.css" />
+    <Content Include="smarttrack\static\content\map.png" />
     <Content Include="smarttrack\static\content\site.css" />
     <Content Include="smarttrack\static\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="smarttrack\static\fonts\glyphicons-halflings-regular.svg" />
