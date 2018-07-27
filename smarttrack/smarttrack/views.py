@@ -5,7 +5,7 @@ Routes and views for the flask application.
 from datetime import datetime
 from flask import render_template, Flask, Response
 from smarttrack import app
-
+from smarttrack.config import MongoDB
 import os
 
 
