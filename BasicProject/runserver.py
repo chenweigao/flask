@@ -3,7 +3,7 @@ This script runs the application using a development server.
 It contains the definition of routes and views for the application.
 """
 import os
-from HelloFlask import app    # Imports the code from HelloFlask/__init__.py
+from app import app    # Imports the code from HelloFlask/__init__.py
 
 if __name__ == '__main__':
     HOST = os.environ.get('SERVER_HOST', 'localhost')
