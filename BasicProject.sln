@@ -9,6 +9,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "flaskpolls", "flaskpolls\fl
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "smarttrack", "smarttrack\smarttrack.pyproj", "{BEFF60ED-377C-4EEA-B4B3-0320115CE607}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "test_blog", "test_blog\test_blog.pyproj", "{EE74CDEE-A1D4-4FB3-AE28-803382DAAF16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BEFF60ED-377C-4EEA-B4B3-0320115CE607}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BEFF60ED-377C-4EEA-B4B3-0320115CE607}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BEFF60ED-377C-4EEA-B4B3-0320115CE607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE74CDEE-A1D4-4FB3-AE28-803382DAAF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE74CDEE-A1D4-4FB3-AE28-803382DAAF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE74CDEE-A1D4-4FB3-AE28-803382DAAF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE74CDEE-A1D4-4FB3-AE28-803382DAAF16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
