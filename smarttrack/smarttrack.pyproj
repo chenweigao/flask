@@ -28,6 +28,27 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="auth\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="auth\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="auth\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main\errors.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="main\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="smarttrack\base_camera.py">
       <SubType>Code</SubType>
@@ -38,16 +59,25 @@
     <Compile Include="smarttrack\config.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="smarttrack\email.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="smarttrack\models.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="smarttrack\__init__.py" />
     <Compile Include="smarttrack\views.py" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="auth\" />
+    <Folder Include="main\" />
     <Folder Include="smarttrack\" />
     <Folder Include="smarttrack\static\" />
     <Folder Include="smarttrack\static\content\" />
     <Folder Include="smarttrack\static\fonts\" />
     <Folder Include="smarttrack\static\scripts\" />
     <Folder Include="smarttrack\templates\" />
+    <Folder Include="smarttrack\templates\auth\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
@@ -75,6 +105,9 @@
     <Content Include="smarttrack\static\scripts\respond.min.js" />
     <Content Include="smarttrack\static\scripts\_references.js" />
     <Content Include="smarttrack\templates\about.html" />
+    <Content Include="smarttrack\templates\auth\login.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="smarttrack\templates\contact.html" />
     <Content Include="smarttrack\templates\index.html" />
     <Content Include="smarttrack\templates\layout.html" />
