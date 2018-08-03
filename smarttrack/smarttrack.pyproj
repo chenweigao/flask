@@ -48,6 +48,9 @@
     <Compile Include="smarttrack\main\forms.py" />
     <Compile Include="smarttrack\main\views.py" />
     <Compile Include="smarttrack\main\__init__.py" />
+    <Compile Include="smarttrack\manage.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="smarttrack\models.py">
       <SubType>Code</SubType>
     </Compile>
@@ -68,6 +71,7 @@
     <Folder Include="smarttrack\templates\mail\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data-dev.sqlite" />
     <Content Include="requirements.txt" />
     <Content Include="smarttrack\auth\__pycache__\forms.cpython-36.pyc" />
     <Content Include="smarttrack\auth\__pycache__\views.cpython-36.pyc" />
