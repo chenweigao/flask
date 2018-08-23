@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+</div>
+<div class="jumbotron">
+    <h3>Smarttrack {{ username }}</h3>
+
+    <p class="lead">By xidian wisenor teap, mobisys laboratory.</p>
+    <!-- <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p> -->
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        {% if current_user.is_authenticated %}
+        <h2>Map</h2> 
+        <img src="./static/map.png" width= "100%">
+        {% else %}
+        <h4>You have not buy our product 'smarttrack - map' yet.</h4>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        {% if current_user.is_authenticated %}
+        <h2>Video</h2>
+        <img src="{{ url_for('main.video_feed') }}" width="100%">
+        {% else %}
+        <h4>You have not buy our product 'smarttrack - video' yet.</h4>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
