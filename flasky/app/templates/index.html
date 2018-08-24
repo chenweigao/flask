@@ -1,23 +1,52 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block title %}Flasky{% endblock %}
 
 {% block page_content %}
-<div class="page-header">
-    <h1>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
+<div class="panel panel-heading">
+    <h1 class='panel-heading'>Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h1>
 </div>
-<div class="jumbotron">
-    <h3>Smarttrack {{ username }}</h3>
+<!-- <div class="panel panel-primary">
+	<div class="panel-heading">
+		<h1 class="panel-info">Hello, {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif %}!</h3>
+	</div>
+</div> -->
+<!-- <div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Settings</h3>
+	</div>
+	<div class="panel-body">
+        {{ wtf.quick_form(form) }}
+    </div>
+</div> -->
 
-    <p class="lead">By xidian wisenor teap, mobisys laboratory.</p>
-    <!-- <p><a href="http://flask.pocoo.org/" class="btn btn-primary btn-large">Learn more &raquo;</a></p> -->
-</div>
+<div class="panel panel-info">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a data-toggle="collapse" data-parent="#accordion" 
+				   href="#collapseThree">
+					settings
+				</a>
+			</h4>
+		</div>
+		<div id="collapseThree" class="panel-collapse collapse">
+			<div class="panel-body">
+                    {{ wtf.quick_form(form) }}
+			</div>
+		</div>
+    </div>
+    
 
 <div class="row">
     <div class="col-md-6">
         {% if current_user.is_authenticated %}
-        <h2>Map</h2> 
+        <h2>Map</h2>
+        {% if map_on %} 
         <img src="./static/map.png" width= "100%">
+        {% else %}
+        <h3>Please open the map</h3>
+        {% endif %}
         {% else %}
         <h4>You have not buy our product 'smarttrack - map' yet.</h4>
         {% endif %}
@@ -26,7 +55,11 @@
     <div class="col-md-6">
         {% if current_user.is_authenticated %}
         <h2>Video</h2>
+        {% if video_on %} 
         <img src="{{ url_for('main.video_feed') }}" width="100%">
+        {% else %}
+        <h3>Please open the video</h3>
+        {% endif %}
         {% else %}
         <h4>You have not buy our product 'smarttrack - video' yet.</h4>
         {% endif %}

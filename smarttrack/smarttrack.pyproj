@@ -67,6 +67,7 @@
     <Folder Include="smarttrack\static\content\" />
     <Folder Include="smarttrack\static\fonts\" />
     <Folder Include="smarttrack\static\scripts\" />
+    <Folder Include="smarttrack\templates\" />
     <Folder Include="smarttrack\templates\auth\" />
     <Folder Include="smarttrack\templates\mail\" />
   </ItemGroup>
