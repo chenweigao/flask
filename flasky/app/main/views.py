@@ -1,7 +1,7 @@
-from flask import render_template, flash
+from flask import render_template, flash, url_for
 from . import main
 import os
-from app import create_app, db
+from app import create_app, db, mongo
 from app.models import User, Role
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
@@ -34,7 +34,12 @@ def index():
     db.session.add(map_switch)
     db.session.add(video_switch)
     # db.session.commit()  
-    return render_template('index.html', form=form, map_on=map_on, video_on=video_on)
+    # data = list(mongo.db.mycol.find())
+    data = list(mongo.db.mycol.find())
+    path=url_for('static',filename='image/path.png')
+    url=url_for('static',filename='js/trail.js')
+
+    return render_template('index.html', form=form, map_on=map_on, video_on=video_on, data=data, path=path, url=url)
 
 if os.environ.get('CAMERA'):
     Camera = import_module('camera_' + os.environ['CAMERA']).Camera
@@ -57,3 +62,15 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
         
+@main.route('/settings', methods=['GET', 'POST'])
+def settings():
+    return render_template('settings.html')
+
+
+@main.route('/tables', methods=['GET', 'POST'])
+def tables():
+    return render_template('tables.html')
+
+@main.route('/charts', methods=['GET', 'POST'])
+def charts():
+    return render_template('charts.html')

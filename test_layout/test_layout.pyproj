@@ -1,0 +1,137 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>a918b522-52b4-48b6-83d7-0481e1e71ee3</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{789894c7-04a9-4a11-a6b5-3f4435165112};{1b580a1a-fdb3-4b32-83e1-6407eb2722e6};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>app.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Web launcher</LaunchProvider>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+    <Name>test_layout</Name>
+    <RootNamespace>test_layout</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="requirements.txt" />
+    <Content Include="static\bootstrap\css\bootstrap-responsive.min.css" />
+    <Content Include="static\bootstrap\css\bootstrap.min.css" />
+    <Content Include="static\bootstrap\img\glyphicons-halflings-white.png" />
+    <Content Include="static\bootstrap\img\glyphicons-halflings.png" />
+    <Content Include="static\bootstrap\js\bootstrap.min.js" />
+    <Content Include="static\css\theme.css" />
+    <Content Include="static\images\bg.png" />
+    <Content Include="static\images\icons\css\font-awesome.css" />
+    <Content Include="static\images\icons\font\fontawesome-webfont3294.eot" />
+    <Content Include="static\images\icons\font\fontawesome-webfont3294.ttf" />
+    <Content Include="static\images\icons\font\fontawesome-webfont3294.woff" />
+    <Content Include="static\images\icons\font\fontawesome-webfontd41d.eot" />
+    <Content Include="static\images\img.jpg" />
+    <Content Include="static\images\jquery-ui\picker.png" />
+    <Content Include="static\images\user.png" />
+    <Content Include="static\scripts\common.js" />
+    <Content Include="static\scripts\datatables\jquery.dataTables.js" />
+    <Content Include="static\scripts\flot\jquery.flot.js" />
+    <Content Include="static\scripts\flot\jquery.flot.pie.js" />
+    <Content Include="static\scripts\flot\jquery.flot.resize.js" />
+    <Content Include="static\scripts\jquery-1.9.1.min.js" />
+    <Content Include="static\scripts\jquery-ui-1.10.1.custom.min.js" />
+    <Content Include="templates\activity.html" />
+    <Content Include="templates\charts.html" />
+    <Content Include="templates\form.html" />
+    <Content Include="templates\index.html" />
+    <Content Include="templates\message.html" />
+    <Content Include="templates\other-login.html" />
+    <Content Include="templates\other-user-listing.html" />
+    <Content Include="templates\other-user-profile.html" />
+    <Content Include="templates\table.html" />
+    <Content Include="templates\task.html" />
+    <Content Include="templates\ui-button-icon.html" />
+    <Content Include="templates\ui-typography.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.6</Version>
+      <Description>env (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="templates\" />
+    <Folder Include="static\" />
+    <Folder Include="static\bootstrap\" />
+    <Folder Include="static\bootstrap\css\" />
+    <Folder Include="static\bootstrap\img\" />
+    <Folder Include="static\bootstrap\js\" />
+    <Folder Include="static\css\" />
+    <Folder Include="static\images\" />
+    <Folder Include="static\images\icons\" />
+    <Folder Include="static\images\icons\css\" />
+    <Folder Include="static\images\icons\font\" />
+    <Folder Include="static\images\jquery-ui\" />
+    <Folder Include="static\scripts\" />
+    <Folder Include="static\scripts\datatables\" />
+    <Folder Include="static\scripts\flot\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -8,6 +8,6 @@ class NameForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class VideoForm(FlaskForm):
-    switch_map = BooleanField('Open the map')
-    switch_video = BooleanField('Open the video')
-    submit = SubmitField('Submit')
+    switch_map = BooleanField(u'Open the map', default=1)
+    switch_video = BooleanField(u'Open the video')
+    submit = SubmitField(u'Submit')

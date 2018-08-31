@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Settings{% endblock %}
+
+
+{% block page_content %}
+<div id="chart"></div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script src="/static/js/mycharts.js"></script>
+<script src="https://unpkg.com/frappe-charts@1.0.0/dist/frappe-charts.min.iife.js"></script>
+{% endblock %}
