@@ -16,15 +16,16 @@
 {{ super() }}
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-<style>
+<!-- <style>
     body
     {
         background-image:url('/static/1.jpg');
         background-size: cover;
+        /* background-attachment: fixed; */
         /* background-size:100% 100% */
         
     }
-    </style>
+    </style> -->
 {% endblock %}
 
 {% block navbar %}
@@ -47,7 +48,7 @@
                 <li><a href="{{ url_for('main.charts') }}">图表</a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="{{ url_for('main.tables') }}">统计</a></li>
+                <li><a href="{{ url_for('main.tables') }}">历史</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li><a href="{{ url_for('main.settings') }}">设置</a></li>
@@ -82,6 +83,6 @@
 {% block scripts %}
 {{ super() }}
 {{ moment.include_moment() }}
-<script src="/static/incubator-echarts-master/incubator-echarts-master/dist/echarts.min.js"></script>
+<script src="/static/js/echarts.min.js"></script>
 <script type="text/javascript" src="/static/js/trail.js"></script>
 {% endblock %}

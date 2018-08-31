@@ -71,6 +71,9 @@ def settings():
 def tables():
     return render_template('tables.html')
 
-@main.route('/charts', methods=['GET', 'POST'])
+@main.route('/charts')
 def charts():
-    return render_template('charts.html')
+    legend = 'Monthly Data'
+    labels = ["January", "February", "March", "April", "May", "June", "July", "August"]
+    values = [10, 9, 8, 7, 6, 4, 7, 8]
+    return render_template('charts.html', values=values, labels=labels, legend=legend)

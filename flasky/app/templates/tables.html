@@ -1,166 +1,53 @@
-{% extends "base.html" %}
-{% block title %}Tables{% endblock %}
+{% extends "base.html" %} {% block title %}Tables{% endblock %} {% block page_content %}
+<div class="row">
+    <h2>历史统计</h2>
+    <div id="chart"></div>
 
-{% block page_content %}
-<div class="span9">
-        <div class="content">
+  {% endblock %} {% block scripts %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/frappe-charts/1.1.0/frappe-charts.min.iife.js"></script>
 
-            <div class="module">
-                <div class="module-head">
-                    <h3>Tables</h3>
-                </div>
-                <div class="module-body">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
+  <script>
+    let chart = new frappe.Chart("#chart", { // or DOM element
+      data: {
+        labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
+          "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
 
-                    <br />
-                    <!-- <hr /> -->
-                    <br />
+        datasets: [
+          {
+            name: "Some Data", chartType: 'bar',
+            values: [25, 40, 30, 35, 8, 52, 17, -4]
+          },
+          {
+            name: "Another Set", chartType: 'bar',
+            values: [25, 50, -10, 15, 18, 32, 27, 14]
+          },
+          {
+            name: "Yet Another", chartType: 'line',
+            values: [15, 20, -3, -15, 58, 12, -17, 37]
+          }
+        ],
 
-                    <p>
-                        <strong>Striped</strong>
-                       
-                    </p>
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
+        yMarkers: [{
+          label: "Marker", value: 70,
+          options: { labelPos: 'left' }
+        }],
+        yRegions: [{
+          label: "Region", start: -10, end: 50,
+          options: { labelPos: 'right' }
+        }]
+      },
 
-                    <br />
-                    <!-- <hr /> -->
-                    <br />
+      // title: "My Awesome Chart",
+      type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
+      height: 300,
+      colors: ['purple', '#ffa3ef', 'light-blue'],
 
-                    <p>
-                        <strong>Bordered</strong>
-                    
-                    </p>
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-
-                    <br />
-                    <!-- <hr /> -->
-                    <br />
-                    <br>
-
-                    <p>
-                        <strong>Combined</strong>
-                        -
-                        <small>table class="table table-striped table-bordered table-condensed"</small>
-                    </p>
-                    <table class="table table-striped table-bordered table-condensed">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                </div>
-            </div>
-
-           
-{% endblock %}
+      tooltipOptions: {
+        formatTooltipX: d => (d + '').toUpperCase(),
+        formatTooltipY: d => d + ' pts',
+      },
+      barOptions: {
+        spaceRatio: 0.2 // default: 1
+      },
+    });
+  </script> {% endblock %}

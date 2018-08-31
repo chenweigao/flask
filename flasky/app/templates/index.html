@@ -1,7 +1,20 @@
 {% extends "base.html" %} {% import "bootstrap/wtf.html" as wtf %} {% block title %}smarttrack{% endblock %} {% block page_content
 %}
 
+{% block head %}
+{{ super() }}
 
+<style>
+    body
+    {
+        background-image:url('/static/1.jpg');
+        background-size: cover;
+        /* background-attachment: fixed; */
+        /* background-size:100% 100% */
+        
+    }
+    </style>
+{% endblock %}
 <div class="alert alert-dismissible alert-success">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>欢迎使用本产品!</strong> {% if current_user.is_authenticated %}{{ current_user.username }}{% else %}Stranger{% endif
@@ -29,7 +42,10 @@
     <div class="col-md-8">
         <h2>地图</h2>
         {% if current_user.is_authenticated %} {% if map_on %}
-        <img src="./static/path.png"> {% else %}
+        <img src="./static/path.png" style="height:800px;width:700px"> 
+        <!-- <div id="main" style="position: absolute;top:350px;left:400px;height:700px;width:580px"></div>
+        <input type="text" value="{{ data }}" id="data" hidden>  -->
+        {% else %}
         <h3>Please open the map</h3>
         {% endif %} {% else %}
         <div class="alert alert-dismissible alert-info">
@@ -79,19 +95,17 @@
         {% endif %}
     </div>
 </div>
-<!-- <img src="{{path}}" style="position: absolute;top:50px;left:60px;width: 400px;height: 600px;">
-<div id="main" style="position: absolute;top:50px;left:60px;width: 400px;height:600px"></div>
+{% if current_user.is_authenticated %} {% if map_on %}
+<div id="main" style="position: absolute;top:350px;left:400px;height:700px;width:580px"></div>
 <input type="text" value="{{data}}" id="data" hidden>
-{{ data }}
-<div id="chart"></div>
-<div id="main" style="height:400px"></div> -->
+{% else %}
+{% endif %}
+{% endif %}
 {% endblock %}
 
 {% block scripts %}
 {{ super() }}
-<!-- <script type="text/javascript" src="./static/js/echarts.min.js"></script>
-<script type="text/javascript" src="./static/js/trail.js"></script> -->
-<script src="./static/js/mycharts.js"></script>
-<!-- <script src="http://echarts.baidu.com/build/dist/echarts.js"></script> -->
-<!-- <script src="https://unpkg.com/frappe-charts@1.0.0/dist/frappe-charts.min.iife.js"></script> -->
+<script src="/static/js/echarts.min.js"></script>
+<script type="text/javascript" src="/static/js/trail.js"></script>
 {% endblock %}
+
