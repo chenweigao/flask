@@ -1,30 +1,119 @@
 // Javascript
-let chart = new Chart( "#chart", { // or DOM element
+var randomScalingFactor = function () {
+  return Math.round(Math.random() * 100);
+};
+
+var color = Chart.helpers.color;
+var config = {
+  type: 'radar',
   data: {
-    labels: ["12am-3am", "3am-6am", "6am-9am", "9am-12pm",
-    "12pm-3pm", "3pm-6pm", "6pm-9pm", "9pm-12am"],
-  
-    datasets: [
-    {
-      label: "Some Data", type: 'bar',
-      values: [25, 40, 30, 35, 8, 52, 17, -4]
-    },
-    {
-      label: "Another Set", type: 'bar',
-      values: [25, 50, -10, 15, 18, 32, 27, 14]
-    },
-    {
-      label: "Yet Another", type: 'line',
-      values: [15, 20, -3, -15, 58, 12, -17, 37]
-    }
-    ],
-  
-    yMarkers: [{ label: "Marker", value: 70 }],
-    yRegions: [{ label: "Region", start: -10, end: 50 }]
+    labels: [['Eating', 'Dinner'], ['Drinking', 'Water'], 'Sleeping', ['Designing', 'Graphics'], 'Coding', 'Cycling', 'Running'],
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+      borderColor: window.chartColors.red,
+      pointBackgroundColor: window.chartColors.red,
+      data: [
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor()
+      ]
+    }, {
+      label: 'My Second dataset',
+      backgroundColor: color(window.chartColors.blue).alpha(0.2).rgbString(),
+      borderColor: window.chartColors.blue,
+      pointBackgroundColor: window.chartColors.blue,
+      data: [
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor(),
+        randomScalingFactor()
+      ]
+    }]
   },
-  
-  title: "My Awesome Chart",
-  type: 'axis-mixed', // or 'bar', 'line', 'pie', 'percentage'
-  height: 250,
-  colors: ['purple', '#ffa3ef', 'red']
+  options: {
+    legend: {
+      position: 'top',
+    },
+    title: {
+      display: true,
+      text: 'Chart.js Radar Chart'
+    },
+    scale: {
+      ticks: {
+        beginAtZero: true
+      }
+    },
+    resopnsive: true,
+    responsiveAnimationDuration: 10
+  }
+};
+
+window.onload = function () {
+  window.myRadar = new Chart(document.getElementById('canvas'), config);
+};
+
+document.getElementById('randomizeData').addEventListener('click', function () {
+  config.data.datasets.forEach(function (dataset) {
+    dataset.data = dataset.data.map(function () {
+      return randomScalingFactor();
+    });
   });
+
+  window.myRadar.update();
+});
+
+var colorNames = Object.keys(window.chartColors);
+document.getElementById('addDataset').addEventListener('click', function () {
+  var colorName = colorNames[config.data.datasets.length % colorNames.length];
+  var newColor = window.chartColors[colorName];
+
+  var newDataset = {
+    label: 'Dataset ' + config.data.datasets.length,
+    borderColor: newColor,
+    backgroundColor: color(newColor).alpha(0.2).rgbString(),
+    pointBorderColor: newColor,
+    data: [],
+  };
+
+  for (var index = 0; index < config.data.labels.length; ++index) {
+    newDataset.data.push(randomScalingFactor());
+  }
+
+  config.data.datasets.push(newDataset);
+  window.myRadar.update();
+});
+
+document.getElementById('addData').addEventListener('click', function () {
+  if (config.data.datasets.length > 0) {
+    config.data.labels.push('dataset #' + config.data.labels.length);
+
+    config.data.datasets.forEach(function (dataset) {
+      dataset.data.push(randomScalingFactor());
+    });
+
+    window.myRadar.update();
+  }
+});
+
+document.getElementById('removeDataset').addEventListener('click', function () {
+  config.data.datasets.splice(0, 1);
+  window.myRadar.update();
+});
+
+document.getElementById('removeData').addEventListener('click', function () {
+  config.data.labels.pop(); // remove the label first
+
+  config.data.datasets.forEach(function (dataset) {
+    dataset.data.pop();
+  });
+
+  window.myRadar.update();
+});
