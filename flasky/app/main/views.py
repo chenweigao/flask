@@ -18,7 +18,7 @@ def index():
     form = VideoForm()
     map_on = form.switch_map.data
     video_on = form.switch_video.data
-    
+
     map_switch = Role(map_switch=form.switch_map.data)
     video_switch = Role(video_switch=form.switch_video.data)
     # if map_on == True:
@@ -30,16 +30,22 @@ def index():
     #     flash(u'success open the video!')
     # else:
     #     flash(u'video closed!')
-    
+
     db.session.add(map_switch)
     db.session.add(video_switch)
-    # db.session.commit()  
+    # db.session.commit()
     # data = list(mongo.db.mycol.find())
     data = list(mongo.db.mycol.find())
-    path=url_for('static',filename='image/path.png')
-    url=url_for('static',filename='js/trail.js')
+    path = url_for('static', filename='image/path.png')
+    url = url_for('static', filename='js/trail.js')
 
     return render_template('index.html', form=form, map_on=map_on, video_on=video_on, data=data, path=path, url=url)
+
+
+@main.route('/data.json')
+def data():
+    return str([{'x':i['x'], 'y':i['y'], 'time':i['time']} for i in mongo.db.mycol.find()])
+
 
 if os.environ.get('CAMERA'):
     Camera = import_module('camera_' + os.environ['CAMERA']).Camera
@@ -61,7 +67,7 @@ def video_feed():
     return Response(gen(Camera()),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-        
+
 @main.route('/settings', methods=['GET', 'POST'])
 def settings():
     return render_template('settings.html')
@@ -71,9 +77,11 @@ def settings():
 def tables():
     return render_template('tables.html')
 
+
 @main.route('/charts')
 def charts():
     legend = 'Monthly Data'
-    labels = ["January", "February", "March", "April", "May", "June", "July", "August"]
+    labels = ["January", "February", "March",
+              "April", "May", "June", "July", "August"]
     values = [10, 9, 8, 7, 6, 4, 7, 8]
     return render_template('charts.html', values=values, labels=labels, legend=legend)

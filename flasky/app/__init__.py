@@ -18,7 +18,6 @@ db = SQLAlchemy()
 mongo = PyMongo()
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
-sockio = SocketIO()
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -32,7 +31,8 @@ def create_app(config_name):
     login_manager.init_app(app)
     nav.init_app(app)
     mongo.init_app(app)
-    sockio.init_app(app)
+    # socketio.init_app(app)
+    # socketio = SocketIO(app, async_mode=async_mode)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
