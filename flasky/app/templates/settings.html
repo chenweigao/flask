@@ -2,13 +2,20 @@
 {% block title %}Settings{% endblock %}
 
 {% block page_content %}
-<div>
+<!-- <div>
 	<canvas id="canvas"></canvas>
-</div>
+</div> -->
 {% endblock %}
 
 {% block scripts %}
-<script src="/static/js/Chart.bundle.js"></script>
+<!-- <script src="/static/js/Chart.bundle.js"></script>
 <script src="/static/js/utils.js"></script>
-<script src="/static/js/mycharts.js"></script>
+<script src="/static/js/mycharts.js"></script> -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+</script>
 {% endblock %}
